@@ -1,5 +1,0 @@
-if(EXISTS "/Users/yhh/ci-minimal/build/stringutiltests[1]_tests.cmake")
-  include("/Users/yhh/ci-minimal/build/stringutiltests[1]_tests.cmake")
-else()
-  add_test(stringutiltests_NOT_BUILT stringutiltests_NOT_BUILT)
-endif()
