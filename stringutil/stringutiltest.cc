@@ -12,3 +12,7 @@ TEST(stringutiltest, simple_false) {
 TEST(stringutiltest, short_permutation) {
     ASSERT_TRUE(stringutil::is_permutation("abc", "bac"));
 }
+
+TEST(stringutiltest, short_permutation1) {
+    ASSERT_TRUE(stringutil::is_permutation("abc", "bac"));
+}
