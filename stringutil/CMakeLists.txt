@@ -1,6 +1,8 @@
 # set(PUBLIC_HEADER include/stringutil.h)
-set(SRC stringutil.cc)
 # set(HDR ${PUBLIC_HEADER})
+set(SRC stringutil.cc)
+
+include_directories(include)
 
 add_library(stringutil SHARED ${SRC})
 
