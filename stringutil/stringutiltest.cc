@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "stringutil.h"
+#include "include/stringutil.h"
 
 TEST(stringutiltest, both_empty) {
     ASSERT_TRUE(stringutil::is_permutation("", ""));
