@@ -1,12 +1,9 @@
-# set(PUBLIC_HEADER include/stringutil.h)
-# set(HDR ${PUBLIC_HEADER})
+set(HDR include/stringutil.h)
 set(SRC stringutil.cc)
+add_library(stringutil ${HDR} ${SRC})
+target_include_directories(stringutil PUBLIC include)
 
-include_directories(include)
-
-add_library(stringutil SHARED ${SRC})
-
-# build gtest
+# Build gtests
 enable_testing()
 find_package(GTest REQUIRED)
 include(GoogleTest)
