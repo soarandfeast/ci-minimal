@@ -8,6 +8,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 # stringutil
 add_subdirectory(stringutil)
 add_subdirectory(tests)
+add_subdirectory(include)
+
+# Expose include files
+include_directories(include)
 
 add_executable(${PROJECT_NAME} main.cc)
-target_link_libraries(${PROJECT_NAME} stringutil)
+target_link_libraries(${PROJECT_NAME} stringutil matlab)

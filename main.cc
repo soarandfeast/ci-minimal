@@ -1,5 +1,6 @@
 #include <iostream>
 #include "stringutil.h"
+#include "matlab/matlab.h"
 
 int add(int a, int b) {
     return a + b;
