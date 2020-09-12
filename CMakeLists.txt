@@ -11,7 +11,7 @@ add_subdirectory(tests)
 add_subdirectory(include)
 
 # Expose include files
-include_directories(include)
+# include_directories(include)
 
 add_executable(${PROJECT_NAME} main.cc)
 target_link_libraries(${PROJECT_NAME} stringutil matlab)
