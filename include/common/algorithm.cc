@@ -1,6 +1,6 @@
-#include "stringutil.h"
+#include "include/common/algorithm.h"
 
-bool stringutil::is_permutation(std::string_view s1, std::string_view s2) {
+bool common::algorithm::is_permutation(std::string_view s1, std::string_view s2) {
     if (s1.length() != s2.length()) {
         return false;
     }
