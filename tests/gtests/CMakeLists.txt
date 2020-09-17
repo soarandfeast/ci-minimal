@@ -7,3 +7,4 @@ include(GoogleTest)
 
 add_executable(${PROJECT_NAME} common_test.cc)
 target_link_libraries(${PROJECT_NAME} GTest::GTest GTest::Main common)
+gtest_discover_tests(${PROJECT_NAME})
