@@ -1,7 +1,9 @@
+project(common_test VERSION 0.1.0)
+
 # Build gtests
 enable_testing()
 find_package(GTest REQUIRED)
 include(GoogleTest)
 
-add_executable(stringutil_test stringutil_test.cc)
-target_link_libraries(stringutil_test GTest::GTest GTest::Main common)
+add_executable(${PROJECT_NAME} common_test.cc)
+target_link_libraries(${PROJECT_NAME} GTest::GTest GTest::Main common)
