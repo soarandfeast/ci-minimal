@@ -1,4 +1,4 @@
-#include <gtest/gtest.h>
+#include "gtest/gtest.h"
 #include "common/algorithm.h"
 
 TEST(is_permutation_test, both_empty) {

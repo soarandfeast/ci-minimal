@@ -1,10 +1,14 @@
 project(common_test VERSION 0.1.0)
 
-# Build gtests
-enable_testing()
-find_package(GTest REQUIRED)
-include(GoogleTest)
-
 add_executable(${PROJECT_NAME} common_test.cc)
-target_link_libraries(${PROJECT_NAME} GTest::GTest GTest::Main common)
+
+set(LIB)
+list(APPEND LIB
+    gtest
+    gtest_main
+)
+
+target_link_libraries(${PROJECT_NAME} ${LIB} common)
+
+include(GoogleTest)  # Cmake module that enables gtest_discover_tests()
 gtest_discover_tests(${PROJECT_NAME})
