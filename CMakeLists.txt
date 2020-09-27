@@ -12,7 +12,7 @@ function(DownloadAndUnpackGoogleTest)
     set(GOOGLETEST_SRC_DIR "${DOWNLOAD_PROJECT_ROOT}/src/googletest")
     set(GOOGLETEST_BUILD_DIR "${DOWNLOAD_PROJECT_ROOT}/build/googletest")
 
-    configure_file(CMakeLists.txt.in ${GOOGLETEST_DOWNLOAD_DIR}/CMakeLists.txt)
+    configure_file(DownloadGoogleTest.CMakeLists.txt.in ${GOOGLETEST_DOWNLOAD_DIR}/CMakeLists.txt)
     execute_process(COMMAND "${CMAKE_COMMAND}" -G "${CMAKE_GENERATOR}" .
         WORKING_DIRECTORY ${GOOGLETEST_DOWNLOAD_DIR}
     )
