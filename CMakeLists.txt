@@ -5,12 +5,13 @@ project(ci-minimal VERSION 0.2.0)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-set(GOOGLETEST_DOWNLOAD_DIR "${CMAKE_BINARY_DIR}/download/googletest")
-set(GOOGLETEST_SRC_DIR "${CMAKE_BINARY_DIR}/lib/googletest")
-set(GOOGLETEST_BUILD_DIR "${CMAKE_BINARY_DIR}/lib/googletest/build")
-
 function(DownloadAndUnpackGoogleTest)
     # Download and unpack googletest at configure time
+    set(DOWNLOAD_PROJECT_ROOT "${CMAKE_BINARY_DIR}/download")
+    set(GOOGLETEST_DOWNLOAD_DIR "${DOWNLOAD_PROJECT_ROOT}/download/googletest")
+    set(GOOGLETEST_SRC_DIR "${DOWNLOAD_PROJECT_ROOT}/src/googletest")
+    set(GOOGLETEST_BUILD_DIR "${DOWNLOAD_PROJECT_ROOT}/build/googletest")
+
     configure_file(CMakeLists.txt.in ${GOOGLETEST_DOWNLOAD_DIR}/CMakeLists.txt)
     execute_process(COMMAND "${CMAKE_COMMAND}" -G "${CMAKE_GENERATOR}" .
         WORKING_DIRECTORY ${GOOGLETEST_DOWNLOAD_DIR}
@@ -22,9 +23,6 @@ function(DownloadAndUnpackGoogleTest)
     # Prevent GoogleTest from overriding our compiler/linker options
     # when building with Visual Studio
     set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-
-    # "No such file or directory" if BUILD_DIR is a sub-directory of SRC_DIR
-    file(MAKE_DIRECTORY ${GOOGLETEST_SRC_DIR} ${GOOGLETEST_BUILD_DIR})
 
     # Add googletest directly to our build. This adds the following targets:
     # gtest, gtest_main, gmock and gmock_main
