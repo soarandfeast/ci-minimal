@@ -5,14 +5,14 @@ project(ci-minimal VERSION 0.2.0)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-function(DownloadAndUnpackGoogleTest)
+function(download_and_unpack_googletest)
     # Download and unpack googletest at configure time
     set(DOWNLOAD_PROJECT_ROOT "${CMAKE_BINARY_DIR}/download")
     set(GOOGLETEST_DOWNLOAD_DIR "${DOWNLOAD_PROJECT_ROOT}/download/googletest")
     set(GOOGLETEST_SRC_DIR "${DOWNLOAD_PROJECT_ROOT}/src/googletest")
     set(GOOGLETEST_BUILD_DIR "${DOWNLOAD_PROJECT_ROOT}/build/googletest")
 
-    configure_file(DownloadGoogleTest.CMakeLists.txt.in ${GOOGLETEST_DOWNLOAD_DIR}/CMakeLists.txt)
+    configure_file(cmake/DownloadGoogleTest.CMakeLists.txt.in ${GOOGLETEST_DOWNLOAD_DIR}/CMakeLists.txt)
     execute_process(COMMAND "${CMAKE_COMMAND}" -G "${CMAKE_GENERATOR}" .
         WORKING_DIRECTORY ${GOOGLETEST_DOWNLOAD_DIR}
     )
@@ -42,7 +42,7 @@ function(DownloadAndUnpackGoogleTest)
     # Now simply link your own targets against gtest, gmock,
     # etc. as appropriate
 endfunction()
-DownloadAndUnpackGoogleTest()
+download_and_unpack_googletest()
 
 add_subdirectory(include)  # internal dependencies
 add_subdirectory(tests)
